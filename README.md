@@ -71,6 +71,6 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
         
  # flush & commit
  
--[x] flush 預先提交，但僅至資料庫內存，並為寫入資料庫文件內
+- [x] flush 預先提交，但僅至資料庫內存，並為寫入資料庫文件內
 
--[x] commit 提交，把內存直接寫入，可以提供查询了
+- [x] commit 提交，把內存直接寫入，可以提供查询了
