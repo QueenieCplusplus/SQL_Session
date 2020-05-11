@@ -38,12 +38,12 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
         from sqlalchemy.orm import sessionmaker
         from sqlalchemy.pool import NullPool
 
-        engine = create_engine('mysql+mysqldb://root:password@127.0.0.1:3306/dbname', poolclass=NullPool)
+        engine = create_engine('mysql+mysqldb://root:password@127.0.0.1:3306/dbname', poolclass=NullPool) // 將預設設定 false
         Session = sessionmaker(bind=engine)
         session = Session()
         usr_obj_list = session.query(UsrObj).all()
         print usr_obj_list[0].id
-        session.close()
+        session.close() // 此時可斷開連接池
         
         
         
