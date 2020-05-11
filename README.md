@@ -63,5 +63,9 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
         print usr_obj_list[0].id
         session.close() // 此時可斷開連接池
         
-        
+ # Thread & Task
+ 
+實際上有多線程參與同一任務，這些線程之间共享 Session 及其對象；應用程式需要落實的 locking scheme，以便不會『同時訪問 Session 或其狀態』。
+
+解決方法是為每個迸發 thread 維護一個 Session，並將對象從一 Session 複製到另一 Session，通常使用 Session.merge() 方法將對象的狀態复制到本地的新對象中。
         
