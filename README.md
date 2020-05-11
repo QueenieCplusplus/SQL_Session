@@ -25,3 +25,20 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 通常仲介軟體使用驅動物件或是特殊意義的物件產生來連結資料庫：
 
      object = method_called('agent://admin:password@IP:port/dbname')
+     
+# Pool 
+     
+
+        #!/usr/bin/env python
+        #-*- coding: utf-8 -*-
+
+        from sqlalchemy import create_engine
+        from sqlalchemy.orm import sessionmaker
+        from sqlalchemy.pool import NullPool
+
+        engine = create_engine('mysql+mysqldb://root:password@127.0.0.1:3306/dbname', poolclass=NullPool)
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        usr_obj_list = session.query(UsrObj).all()
+        print usr_obj_list[0].id
+        session.close()
