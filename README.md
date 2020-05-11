@@ -69,3 +69,7 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 
 解決方法是為每個迸發 thread 維護一個 Session，並將對象從一 Session 複製到另一 Session，通常使用 Session.merge() 方法將對象的狀態复制到本地的新對象中。
         
+ # flush & commit
+ 
+-[X] flush 預先提交，但僅至資料庫內存，並為寫入資料庫文件內
+-[X] commit 提交，把內存直接寫入，可以提供查询了
