@@ -27,6 +27,8 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
      object = method_called('agent://admin:password@IP:port/dbname')
      
 # Pool 
+
+預設上，session 由 QueuePool 自行管理和重複使用，如要關掉預設，可設定參數值為 NullPool !
      
 
         #!/usr/bin/env python
