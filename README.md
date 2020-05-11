@@ -1,12 +1,16 @@
 # SQL Session
 通訊的會議期間
 
+sessions 和 connections 並非指相同的東西， session 憑藉 connection 物件來操作資料庫，一旦任務完成後， session 會自動將 connection 物件交還给 pool。
+
+        session 利用 connection 行使 transaction 
+
 開發者從 pool 網路連線池拿取命名為 connection 的物件，
 可呼叫其仲介軟體或是使用者端軟體中和 SQL 指令同名稱的方法如 
 
-session.commit 
-session.rollback 
-session.close 
+        session.commit 
+        session.rollback 
+        session.close 
 
 將連線物件放回 網路連線池子 pool 裡。
 
