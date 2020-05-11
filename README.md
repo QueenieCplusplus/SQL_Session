@@ -32,13 +32,21 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 
 關於連接池的相關參數：
 
--pool_recycle=n, 如果 connection 空閒了 n 秒，自動重新獲取，防止 connection 被 db server 關閉。
+- pool_recycle=n
 
--pool_size=5, 連接數大小，可根據實際情況調整
+     如果 connection 空閒了 n 秒，自動重新獲取，防止 connection 被 db server 關閉。
 
--max_overflow=10, 超出 pool_size 後可允許的最大連街數，這些連結使用完畢，不放回 pool 中，會被真正關閉的，不復使用。
+- pool_size=5
 
--pool_timeout=30, 獲取 session 的超时阈值，
+     連接數大小，可根據實際情況調整
+
+- max_overflow=10
+
+     超出 pool_size 後可允許的最大連街數，這些連結使用完畢，不放回 pool 中，會被真正關閉的，不復使用。
+
+- pool_timeout=30
+
+     獲取 session 的超时阈值，
      
 
         #!/usr/bin/env python
