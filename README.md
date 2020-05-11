@@ -42,3 +42,6 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
         usr_obj_list = session.query(UsrObj).all()
         print usr_obj_list[0].id
         session.close()
+        
+        
+        
