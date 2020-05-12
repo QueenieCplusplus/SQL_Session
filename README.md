@@ -1,6 +1,8 @@
 # SQL Session 會議連線
 通訊的會議期間
 
+![session and pool](https://docs.oracle.com/en/database/oracle/oracle-database/18/lnoci/img/lnoci043.gif)
+
 # Connection Object 連接物件
 
 sessions 和 connections 並非指相同的東西， session 憑藉 connection 物件來操作資料庫，一旦任務完成後， session 會自動將 connection 物件交還给 pool。
