@@ -69,6 +69,25 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
         print usr_obj_list[0].id
         session.close() // 此時可斷開連接池
         
+ # Connection Pool & Session Pool
+ 
+ * Connection Pool
+ 
+ * Session Pool
+ 
+ 
+   * Create, maintain, and manage a pool of stateless sessions transparently.
+
+   * Provide an interface for the application to create a pool and specify the minimum, increment, and maximum number of sessions in the pool.
+
+   * Provide an interface for the user to obtain and release a default or tagged session to the pool. A tagged session is one with certain client-defined properties.
+
+   * Allow the application to dynamically change the number of minimum and maximum number of sessions.
+
+   * Provide a mechanism to always maintain an optimum number of open sessions, by closing sessions that have been idle for a very long time, and creating sessions when required.
+
+   * Allow for session pooling with authentication.
+        
  # Multi-Threads & Task 多線程和共用資源
  
 Session pooling means that the application creates and maintains a group of stateless sessions to the database.
