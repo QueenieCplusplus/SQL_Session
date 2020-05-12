@@ -32,6 +32,8 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
      
 # Pool 連接池
 
+！[connection pool](http://3.bp.blogspot.com/-RSdnkn_fvs0/U9fX1f1HURI/AAAAAAAAADw/fu83fUYZwZE/s1600/ap_with_cp1.jpg)
+
 預設上，connection 由 QueuePool 自行管理和重複使用，如要關掉預設，可設定參數值為 NullPool !
 
 ![pool](https://static.packt-cdn.com/products/9781782169413/graphics/9413_01_06.jpg)
