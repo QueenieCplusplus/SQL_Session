@@ -30,7 +30,7 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 
      object = method_called('agent://admin:password@IP:port/dbname')
      
-# Pool 連接池
+# Connection Pool 連接池
 
 [connection pool](http://3.bp.blogspot.com/-RSdnkn_fvs0/U9fX1f1HURI/AAAAAAAAADw/fu83fUYZwZE/s1600/ap_with_cp1.jpg)
 
@@ -54,7 +54,7 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 
 - max_overflow=10
 
-     超出 pool_size 後可允許的最大連街數，這些連結使用完畢，不放回 pool 中，會被真正關閉的，不復使用。
+     超出 pool_size 後可允許的最大連接數，這些連接使用完畢，不放回 pool 中，會被真正關閉的，不復使用。
      
 
         #!/usr/bin/env python
