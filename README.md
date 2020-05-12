@@ -5,6 +5,8 @@
 
 # Connection Object 連接物件
 
+The call to createQueueConnection gets a connection from the connection pool. And there can be a maximum of 10 connections or sessions in each pool. Each connection in the connection pool has its own session pool. This means that there can be 10 session pools that can have a maximum of 10 sessions each.
+
 sessions 和 connections 並非指相同的東西， session 憑藉 connection 物件來操作資料庫，一旦任務完成後， session 會自動將 connection 物件交還给 pool。
 
         session 利用 connection 行使 transaction 
