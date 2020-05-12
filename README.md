@@ -74,7 +74,23 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
  # Connection Pool & Session Pool
  
  * Connection Pool
+
+             [ App ]             [Connection Pool]                             [DB]
+
+             thread1             virtual connection      
+
+                                                       physical_connection_1 _  
+
+             thread2             ...       
+
+                                                       physical_connection_2 _  
+
+             thread3
+
+             ...
  
+ 
+
  * Session Pool
  
  
