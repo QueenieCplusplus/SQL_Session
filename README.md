@@ -70,6 +70,8 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 實際上有多線程參與同一任務，這些線程之间共享 Session 及其對象；應用程式需要落實的 locking scheme，以便不會『同時訪問 Session 或其狀態』。
 
 解決方法是為每個迸發 thread 維護一個 Session，並將對象從一 Session 複製到另一 Session，通常使用 Session.merge() 方法將對象的狀態复制到本地的新對象中。
+
+![thread session connection pool ](https://mobisoftinfotech.com/resources/wp-content/uploads/2018/04/Understanding-DB-Connection-Pools-Architecture.png)
         
  # flush & commit 預提交和提交
  
