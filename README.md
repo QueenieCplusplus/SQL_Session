@@ -20,6 +20,33 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 
 將連線物件放回 網路連線池子 pool 裡。
 
+        static void Main(string[] args)
+        {
+                // 設定相關資料庫連線參數
+                string connection = @"Data Source=(LocalDb)\MSSQLLocalDB;Integrated Security=SSPI;AttachDBFilename=D:\Workspace\[03]Test\localdbtest\LocalDbTest\LocalDb.mdf;";
+
+                Enumerable.Range(1, 10).Select(x => Task.Run(() =>
+                {
+                        Stopwatch sw = new Stopwatch();
+                        sw.Start();
+
+                        SqlConnection sqlConnection = new SqlConnection();
+                        sqlConnection.ConnectionString = connection;
+
+                        // 開啟連線
+                        sqlConnection.Open();
+
+                        sqlConnection.Close();
+                        sqlConnection.Dispose();
+                        sqlConnection = null;
+
+                        sw.Stop();
+                        Console.WriteLine($"連線 {x} 共耗時 {sw.ElapsedMilliseconds} 毫秒");
+                })).ToList();
+
+                Console.ReadKey();
+        }
+
 # Timeout 逾時
 
 然而此時 connection 物件的交易 transaction 並沒有完成與完畢（rollback or commit)。 而不知什么原因（recyle 了，timeout 了），此時 connection 生命週期已盡，仲介軟體則會負責與 DB 重新生成連線，但是由于 transaction 沒有結束，故無法重新連線，也就無法產生新的 Session。
