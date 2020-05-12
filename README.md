@@ -74,6 +74,8 @@ sessions 和 connections 並非指相同的東西， session 憑藉 connection �
 Session pooling means that the application creates and maintains a group of stateless sessions to the database.
 
 These sessions are provided to clients as requested. If no sessions are available, a new one may be created. When the client is done with the session, the client releases it to the pool. Thus, the number of sessions in the pool can increase dynamically.
+
+Some of the sessions in the pool may be tagged with certain properties. For instance, a user may request a default session, set certain attributes on it, label it or tag it, and return it to the pool. That user, or some other user, can require a session with the same attributes, and thus request a session with the same tag. There may be several sessions in the pool with the same tag. The tag on a session can be changed or reset.
  
 實際上有多線程參與同一任務，這些線程之间共享 Session 及其對象；應用程式需要落實的 locking scheme，以便不會『同時訪問 Session 或其狀態』。
 
